@@ -6,4 +6,4 @@
 
 chromedriver下载地址：https://sites.google.com/a/chromium.org/chromedriver/downloads
 
-phantomjs![下载地址](http://phantomjs.org/download.html)
+phantomjs下载地址：http://phantomjs.org/download.html
