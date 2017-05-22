@@ -36,11 +36,11 @@ company = [
 ]
 for x in company:
     # print(tran.quote(x))
+      
     driver.get('http://www.tianyancha.com/search?key=%s&checkFrom=searchBox' %
                (tran.quote(x)))
-    is_disappeared = WebDriverWait(driver, 8, 0.5, ignored_exceptions=TimeoutException)
-    WebDriverWait.until(lambda x: x.find_element_by_id("id").is_displayed())
-    time.sleep(5)
+    driver.implicitly_wait(20) # 隐性等待，最长等30秒
+    time.sleep(1)
     conten = driver.page_source
     # driver.close()
     # print(content)
@@ -50,6 +50,7 @@ for x in company:
     selector = html.xpath(
         '//*[@id="ng-view"]/div[2]/div/div/div[1]/div[3]/div/div[2]/div[1]/div[1]/a/span'
     )
+    
     inno = selector[0].xpath('string()')
     # print(inno)
     selector = html.xpath(
@@ -69,7 +70,7 @@ for (k, v) in dictcom.items():
 
     #print(k, v)
     driver.get(v)
-    time.sleep(5)
+    time.sleep(1)
     content = driver.page_source
 
     # print(content)
